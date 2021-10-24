@@ -586,7 +586,7 @@ async def play(_, message: Message):
         )
         file_name = get_file_name(audio)
         title = file_name
-        thumb_name = "https://telegra.ph/file/fa2cdb8a14a26950da711.png"
+        thumb_name = "https://i.ytimg.com/vi/VNDV1jGCuW4/maxresdefault.jpg"
         thumbnail = thumb_name
         duration = round(audio.duration / 60)
         message.from_user.first_name
@@ -645,7 +645,7 @@ async def play(_, message: Message):
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
 
         try:
-            results = YoutubeSearch(query, max_results=5).to_dict()
+            results = YoutubeSearch(query, max_results=9).to_dict()
         except:
             await lel.edit(
                 "😕 **song name not detected**\n\n» **please provide the name of the song you want to play**"
@@ -654,8 +654,8 @@ async def play(_, message: Message):
             toxxt = "\n"
             j = 0
             user = user_name
-            emojilist = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣"]
-            while j < 5:
+            emojilist = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣"]
+            while j < 9:
                 toxxt += f"{emojilist[j]} [{results[j]['title'][:25]}...](https://youtube.com{results[j]['url_suffix']})\n"
                 toxxt += f" ├ 💡 **Duration** - `{results[j]['duration']}`\n"
                 toxxt += f" └ ⚡ __Powered by {BOT_NAME}__\n\n"
@@ -679,6 +679,20 @@ async def play(_, message: Message):
                         ),
                         InlineKeyboardButton(
                             "5️⃣", callback_data=f"plll 4|{query}|{user_id}"
+                        ),
+                        InlineKeyboardButton(
+                            "6️⃣", callback_data=f"plll 5|{query}|{user_id}"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            "7️⃣", callback_data=f"plll 6|{query}|{user_id}"
+                        ),
+                        InlineKeyboardButton(
+                            "8️⃣", callback_data=f"plll 7|{query}|{user_id}"
+                        ),
+                        InlineKeyboardButton(
+                            "9️⃣", callback_data=f"plll 8|{query}|{user_id}"
                         ),
                     ],
                     [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
